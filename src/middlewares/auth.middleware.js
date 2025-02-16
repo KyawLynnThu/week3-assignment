@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { User } from "../models/user.js";
 
 export const verifyJwt = async (req, res, next) => {
-  const incomingToken = req.cookies.accessToken || req.headers("Authorization");
+  const incomingToken = req.cookies.accessToken || req.headers["Authorization"];
 
   if (!incomingToken) {
     return res.status(401).json({ message: "Unauthorized" });
